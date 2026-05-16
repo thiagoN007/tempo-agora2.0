@@ -5,7 +5,7 @@ function getlocalizacao() {
             const lon = position.coords.longitude;
             buscarClima(lat, lon);
         }, function(error) {
-            document.getElementById("clima").innerHTML = "Ative a localizção!.";
+            document.getElementById("clima").innerHTML = "Ative a localizção!";
         });
     } else {
         document.getElementById("clima").innerHTML = "Geolocalização não suportada.";
