@@ -26,8 +26,11 @@ function buscarClima(lat, lon) {
             const tempo = data.weather[0].description;
 
 ;
-            document.getElementById("clima").innerHTML = 
-            `${cidade} 
+            document.getElementById("clima").innerHTML =
+            `
+            <p> Informaçoes </p>
+            
+            ${cidade} 
             <br>
             ${temperatura} °C 
             <br> 
