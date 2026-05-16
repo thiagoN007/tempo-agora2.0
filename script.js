@@ -13,11 +13,11 @@ function getlocalizacao() {
 
 }
 
-function buscarClima(lat, lon) {
+async function buscarClima(lat, lon) {
     const key_API = "a8198020a3d558f814b41efaa9fe0bd7";
     const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key_API}&lang=pt_br`;
 
-    fetch(API)
+    await fetch(API)
         .then(response => response.json())
         .then(data => {
             console.log(data)
