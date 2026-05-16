@@ -1,21 +1,40 @@
-function getLocalizacao() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(sucesso, erro, {
-      enableHighAccuracy: true // Solicita precisão máxima
-    });
-  } else {
-    alert("Geolocalização não suportada no seu navegador.");
-  }
+function getlocalizacao() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+            buscarClima(lat, lon);
+        }, function(error) {
+            document.getElementById("clima").innerHTML = "Não foi possível obter a localização.";
+        });
+    } else {
+        document.getElementById("clima").innerHTML = "Geolocalização não suportada.";
+    }
+
 }
 
-function sucesso(position) {
-  const latitude = position.coords.latitude;
-  const longitude = position.coords.longitude;
-  console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-  // Agora chama a API de clima
-  getTemperatura(latitude, longitude);
-}
+function buscarClima(lat, lon) {
+    const key_API = "a8198020a3d558f814b41efaa9fe0bd7";
+    const API = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${key_API}&lang=pt_br`;
 
-function erro() {
-  alert("Não foi possível obter sua localização.");
+    fetch(API)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            const temperatura = data.main.temp.toFixed(0);
+            const cidade = data.name;
+            const tempo = data.weather[0].description;
+
+;
+            document.getElementById("clima").innerHTML = 
+            `${cidade} 
+            <br>
+            ${temperatura} °C 
+            <br> 
+            ${tempo}`;
+
+        })
+        .catch(() => {
+            document.getElementById("clima").innerHTML = "Erro ao buscar dados do clima.";
+        });
 }
