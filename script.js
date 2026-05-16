@@ -28,7 +28,7 @@ function buscarClima(lat, lon) {
 ;
             document.getElementById("clima").innerHTML =
             `
-            <p> Informaçoes </p>
+            <p> Informações </p>
             
             ${cidade} 
             <br>
