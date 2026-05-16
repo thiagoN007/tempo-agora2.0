@@ -1,0 +1,46 @@
+@media screen and (max-width:768px) {
+    
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+h2 {
+    text-align: center;
+    color: #ffff;
+    font-size: 2rem;
+
+}
+
+.container .btn {
+    width: 90vw;
+    background:#0791d6;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    margin-top: 20px;
+    transition: 0.3s ease-in-out;
+    font-weight: 600;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+}
+
+.container .btn:hover {
+    cursor: pointer;
+    background: #e4dcdc7e;
+}
+
+.area_clima{
+    background: #eeeaea;
+    padding: 50px;
+    margin-top: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+    
+}
+}
